@@ -1,0 +1,55 @@
+{
+    "unknown": [
+        "ip", "betan", "fbs", "neped"
+    ],
+    "equation": [
+        "ip", "betan", "fbs", "neped"
+    ],
+    "scan": {
+        "bt": [4.0, 7.0],
+        "r": [1.0, 2.0],
+        "aratio": [2.5, 3.5],
+        "kappa": [1.5, 2.0],
+        "delta": [0.3, 0.65],
+        "pinj": [30.0, 60.0],
+        "fgw": [0.2, 1.0],
+        "q95": [3.0, 10.0]
+    },
+    "const": {
+        "f_pinj_e": 0.5,
+        "m": 2.0,
+        "zeff": 1.7
+    },
+    "output": [
+     "ip",
+     "neped",
+     "betan",
+     "pmhd",
+     "volume",
+     "area",
+     "p_lh",
+     "fbs",
+     "pbr",
+     "pped",
+     "teped",
+     "betan_ped",
+     "pratio",
+     "delta_cx",
+     "taue",
+     "taup",
+     "tau98",
+     "h98",
+     "taur",
+     "neavg",
+     "teavg",
+     "tiavg",
+     "li",
+     "q_parallel",
+     "nues",
+     "tesol",
+     "nesol",
+     "pressure_sol",
+     "psol",
+     "fz"
+     ]
+}

@@ -1,0 +1,18 @@
+#!/bin/bash -l
+#SBATCH --image=docker:registry.services.nersc.gov/parkjm/tokdesigner:v0.1
+#SBATCH --volume="/global/cscratch1/sd/parkjm/tmpfiles:/tmp:perNodeCache=size=1G"
+#SBATCH -p debug
+#SBATCH -N 1
+#SBATCH -t 00:30:00
+#SBATCH -J ips
+#SBATCH -e ips.err
+#SBATCH -o ips.out
+#SBATCH -C haswell
+srun -N 1 -n 1 ips_shifter.sh \
+  --image=docker:registry.services.nersc.gov/parkjm/tokdesigner:v0.1 \
+  --config=ips_massive_serial.config \
+  --machine=cori_haswell_node.conf \
+  --simulation=tokdesinger.config \
+  --inscan=inscan \
+  --inputdir=input \
+  --summary_dir=SUMMARY

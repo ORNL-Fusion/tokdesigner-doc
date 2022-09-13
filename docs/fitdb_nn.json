@@ -1,0 +1,56 @@
+{
+"li": {
+    "model":"nn",
+    "scaler_x":"standard",
+    "scaler_y":"standard",
+    "variables": [
+        "r", "a", "kappa", "delta", "bt", "ip", "ne_ped", "betan", "f_te", "nepeak",
+        "ne_alpha", "ne_beta", "te_alpha", "te_beta", "ti_alpha", "ti_beta",
+        "rho_jpeak", "jaxis"],
+    "parameter": {
+       "random_state": 1,
+       "hidden_layer_sizes": [100, 100, 100],
+       "max_iter": 1000000,
+       "solver": "lbfgs",
+       "alpha": 1.0e-5,
+       "batch_size": "auto",
+       "verbose":0
+    }
+},
+"fbs": {
+    "model":"nn",
+    "scaler_x":"standard",
+    "scaler_y":"standard",
+    "variables": [
+        "r", "a", "kappa", "delta", "bt", "ip", "ne_ped", "betan", "f_te", "nepeak",
+        "ne_alpha", "ne_beta", "te_alpha", "te_beta", "ti_alpha", "ti_beta",
+        "rho_jpeak", "jaxis"],
+    "parameter": {
+       "random_state": 1,
+       "hidden_layer_sizes": [100, 100, 100],
+       "max_iter": 1000000,
+       "solver": "lbfgs",
+       "alpha": 1.0e-5,
+       "batch_size": "auto",
+       "verbose":0
+    }
+},
+"q95": {
+    "model":"nn",
+    "scaler_x":"standard",
+    "scaler_y":"standard",
+    "variables": [
+        "r", "a", "kappa", "delta", "bt", "ip", "ne_ped", "betan", "f_te", "nepeak",
+        "ne_alpha", "ne_beta", "te_alpha", "te_beta", "ti_alpha", "ti_beta",
+        "rho_jpeak", "jaxis"],
+    "parameter": {
+       "random_state": 1,
+       "hidden_layer_sizes": [100, 100, 100],
+       "max_iter": 1000000,
+       "solver": "lbfgs",
+       "alpha": 1.0e-5,
+       "batch_size": "auto",
+       "verbose":0
+    }
+}
+}
