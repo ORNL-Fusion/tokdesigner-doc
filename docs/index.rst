@@ -18,6 +18,10 @@ Welcome to TokDesigner's Documentation!
    example
    developer
 
+   quick_start_guide
+   step1
+   step2
+
 Indices and tables
 ==================
 
