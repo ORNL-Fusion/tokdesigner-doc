@@ -7,24 +7,12 @@ Welcome to TokDesigner's Documentation!
 =======================================
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
    :caption: Contents:
 
    introduction
    workflow
-   env
-   variable
-   build
-   example
+   quick_start_guide
    developer
 
-   quick_start_guide
-   step1
-   step2
 
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`

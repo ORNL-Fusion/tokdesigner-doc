@@ -2,7 +2,9 @@
 Equilibrium at the reference point
 ==================================
 
-This step illustrates one-point reactor simulation, where we formulate key physics assumptions. We start with a *system-code-like model* but with more consistent/accurate calculation of bootstrap current, fusion reaction etc, self-consistent with the exact MHD equilibrium and more realistic plasma profiles. Note that users can raise the fidelity of each component or add/remove necessary components, for instance, use TGLF for core transport and EPED for pedestal rather than specify the constraint H98. Later we will come back to use the full theory-based models.
+This step illustrates one-point reactor simulation, where we formulate key physics assumptions. We start with a *system-code-like model* but with more consistent/accurate calculation of the bootstrap current, fusion reaction etc, self-consistent with the exact MHD equilibrium and more realistic plasma profiles. Note that users can raise the fidelity of each component or add/remove components as neede, for instance, use TGLF for core transport and EPED for pedestal, rather than specify the constraint H98. 
+`Later  <https://github.com/ORNL-Fusion/tokdesigner-doc/tree/main/docs/under_construction.rst>`_.
+we will come back to use the full theory-based models.
 
 .. note::
 
@@ -32,7 +34,7 @@ The major machine configuration is specified in the *instate* file:
 .. code-block:: fortran
 
    BT = 4.0 ! toroidal magentic field [T]
-   Ip = 8.1 ! Plasma current [MA]
+   IP = 8.1 ! Plasma current [MA]
 
 **Plasma composition**
 
@@ -51,36 +53,39 @@ The major machine configuration is specified in the *instate* file:
 
 **Global parameters**
 
-A set of global parameters can be specified for example, ``betaN`` or ``H98`` with the prefix ``__TARGET``. 
-The IPS-FASTARN constraint component will match these target parameters if turned on.  
+A set of global parameters can be specified for example, ``betaN`` or ``H98`` with the prefix ``_TARGET``. 
+The IPS-FASTARN constraint component will match the given target parameters.  
 
 .. code-block:: fortran
 
    BETAN_TARGET = 3.5 ! btanN target
    H98_TARGET = 1.3 ! H98 input   
 
+Note: If ``H98_TARGET > 0``, ``betaN`` is adjusted to match the given ``H98_TARGET``. 
+If ``H98_TARGET < 0``, ``betaN`` is adjusted to match the given ``BETAN_TARGET``. 
+
 IPS-FASTRAN workflow
 --------------------
 
-The IPS-FASTRAN model `fastran_scenario.conf <https://github.com/ORNL-Fusion/tokdesigner-doc/tree/main/docs/under_construction.rst>`_ in `example1 <https://github.com/ORNL-Fusion/tokdesigner-doc/tree/main/examples/example1>`_ uses ``EFIT``, ``FASTRAN solver`` , ``Model equilibrium constraint``,  and ``model heating/current drive`` components, which iteratively finds a MHD equilibrium with given constraints.
+The IPS-FASTRAN model `fastran_scenario.conf <https://github.com/ORNL-Fusion/tokdesigner-doc/tree/main/docs/under_construction.rst>`_ in `example1 <https://github.com/ORNL-Fusion/tokdesigner-doc/tree/main/examples/example1>`_ uses ``EFIT``, ``FASTRAN solver`` , ``Model equilibrium constraint``,  and ``Model heating/current drive`` components, which iteratively finds a MHD equilibrium with given constraints.
 
 .. code-block:: bash
 
-   PORTS = INIT DRIVER EQ IC TR BC 
+   PORTS = INIT DRIVER EQ0 HCD0 TR0 BC0 
 
-  [[TR]]
-      IMPLEMENTATION = fastran
+  [[TR0]]
+      IMPLEMENTATION = fastran0
 
-  [[EQ]]
-      IMPLEMENTATION = efit
+  [[EQ0]]
+      IMPLEMENTATION = efit0
 
-  [[IC]]
+  [[HCD0]]
       IMPLEMENTATION = hcd_model
 
-  [[BC]]
+  [[BC0]]
       IMPLEMENTATION = modeleq_constraint
 
-In this example, we impose the constraint of H98.
+In this example, the ``modeleq_constraint`` component impose the H98 and broad current profile constraints.
 
 .. code-block:: bash
 
@@ -90,39 +95,51 @@ In this example, we impose the constraint of H98.
       NAME = modeleq_constraint
       MODULE = fastran.driver.modeleq_constraint
       ...
-      CONSTRAINT = "H98"
 
-The heating profile is specified by the Gaussian profile
+The heating profile is specified by the Gaussian profile in the ``hcd_model`` component
 
-**inhcd**
+.. code-block:: bash
+
+  [hcd_model]
+      CLASS = fastran
+      SUB_CLASS = ic
+      NAME = hcd_model
+      MODULE = fastran.heating.hcd_model
+      ...
+      INPUT_FILES = inhcd
+      ...
+
+, using the input file **inhcd**
 
 .. code-block:: fortran
 
   &inhcd
-  nsrc = 1
-  Pe = 30.0
-  Pi = 8.0
-  xmid = 0.0
-  xwid = 0.3
+    nsrc = 1  ! Number of H/CD systems
+    Pe = 30.0 ! Electron power [MW]
+    Pi = 8.0  ! Ion power [MW] 
+    xmid = 0.0 ! Center of Gaussian heating profile 
+    xwid = 0.3 ! Width of Gaussian heating profile
 
-  j0_seed = 0.0
-  x0_seed = 0.0
-  drho_seed = 0.025
+    j0_seed = 0.0 ! Peak current density [MA/m^2]
+    x0_seed = 0.0 ! Center of Gaussian current profile 
+    drho_seed = 0.3 ! Width of Gaussian current profile 
   /
 
 Run
 ---
 
 This simulation can be excuted on the login node of CORI using single core, taking only a couple of minuites. 
-The bash script for run:
+The bash script for run **submitjob.ex1**:
 
 .. code-block:: bash
 
   #!/bin/bash -l
-
   module load python
-  source activate /global/common/software/atom/cori/tokdesigner_conda/v0.1
+  source activate /global/common/software/atom/cori/cesol_conda/t0.14b
 
-  ips.py --simulation=fastran_scenario.config --platform=local.conf --log=ips.log 1> ips.out 2> ips.err &
+  export SHOT_NUMBER=000001
+  export TIME_ID=00001
+
+  ips.py --simulation=fastran_scenario.config --platform=cori_haswell_node.conf --log=ips.log 1> ips.out 2> ips.err &
 
   conda deactivate
