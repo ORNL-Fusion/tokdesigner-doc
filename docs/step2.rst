@@ -2,7 +2,7 @@
 Scan and build a database
 =========================
 
-This section  illustrates how to 1) prepare a scan, 2) submit a job with dakota or massive serial, 3) collect output files, and 4) build a database
+This section  illustrates how to 1) prepare a scan, 2) submit a job with dakota or massive serial, 3) collect output files, and 4) build a database.
 We will use a 2D scan example - aspect ratio and heating power. 
 
 Template 
@@ -17,7 +17,7 @@ Prepare a scan
 
 .. code-block:: bash
 
-    python grid.py --input=grid.json --sim=32
+    grid.py --input=grid.json --sim=32
 
 This will generate the input file for DAKOTA (dakota.in) and massive serial (inscan).
 The option ``--nsim`` specifies the number of cocurrent runs for DAKOTA.
@@ -273,7 +273,7 @@ Build a database
 
 .. code-block:: bash
 
-    pmakedb.py --input=makedb.json --output=db.dat --rdir=SUMMARY
+    makedb.py --input=makedb.json --output=db.dat --rdir=SUMMARY
 
 This will generate a database file ``db.dat`` using the IPS-FASTRAN/CESOL output files archived in the ``SUMMARY`` directory (note ``collect.py .. --sdir=SUMMARY ..``)
 
