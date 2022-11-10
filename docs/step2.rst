@@ -2,7 +2,7 @@
 Scan and build a database
 =========================
 
-This section  illustrates how to 1) prepare a scan, 2) submit a job with dakota or massive serial, 3) collect output files, and 4) build a database.
+This section  illustrates how to 1) prepare a scan, 2) submit a job with DAKOTA or massive serial, 3) collect output files, and 4) build a database.
 We will use a 2D scan example - aspect ratio and heating power. 
 
 Template 
@@ -22,7 +22,7 @@ Prepare a scan
 This will generate the input file for DAKOTA (dakota.in) and massive serial (inscan).
 The option ``--nsim`` specifies the number of cocurrent runs for DAKOTA.
 
-**Input file: grid.json**
+**grid.json**
 
 .. code-block:: python
 
@@ -98,7 +98,7 @@ The option ``--nsim`` specifies the number of cocurrent runs for DAKOTA.
     }
   }
 
-The TokDesigner variables consist of the variables defined in the ``scan``, ``constant``, and ``model`` sections. 
+The TokDesigner variables consist of the variables defined in the ``scan``, ``const``, and ``model`` sections. 
 
 **Scan section**
 
@@ -106,9 +106,9 @@ The TokDesigner variables consist of the variables defined in the ``scan``, ``co
 * ``pinj`` (injection power, MW) : 4 points are given by the user input list [20.0, 30.0, 40.0, 50.0]
 * Number of total scan =  8 * 4 = 32
 
-**Constant section**
+**Const section**
 
-The constant section defines the constant TokDesigner variables. 
+The ``const`` section defines the constant TokDesigner variables. 
 
 **Model section**
 
@@ -228,7 +228,7 @@ Collect output files
 
 .. code-block:: bash
 
-  collect.py --rdir=. --rdir=SCAN --sdir=SUMMRAY --input=collect.json
+  collect.py --rdir0=. --rdir=SCAN --sdir=SUMMRAY --input=collect.json
 
 This will collect output files in the simulation directory ``SCAN`` into the summary directory ``SUMMARY``. 
 
@@ -277,7 +277,7 @@ Build a database
 
 This will generate a database file ``db.dat`` using the IPS-FASTRAN/CESOL output files archived in the ``SUMMARY`` directory (note ``collect.py .. --sdir=SUMMARY ..``)
 
-**make.json**
+**makedb.json**
 
 The ``makedb.json`` defines the database variables. For the illustration purpose, only a few variables are included - r, a, aratio, bt, ip, pinj, q95, betan, fbs, li, tau98, tauth, h98, pfus.
 

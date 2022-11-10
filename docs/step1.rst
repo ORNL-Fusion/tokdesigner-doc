@@ -2,7 +2,7 @@
 Equilibrium at the reference point
 ==================================
 
-This step illustrates one-point reactor simulation, where we formulate key physics assumptions. We start with a *system-code-like model* but with more consistent/accurate calculation of the bootstrap current, fusion reaction etc, self-consistent with the exact MHD equilibrium and more realistic plasma profiles. Note that users can raise the fidelity of each component or add/remove components as neede, for instance, use TGLF for core transport and EPED for pedestal, rather than specify the constraint H98. 
+This step illustrates one-point reactor simulation, where we formulate key physics assumptions. We start with a *system-code-like model* but with more consistent/accurate calculation of the bootstrap current, fusion reaction etc, self-consistent with the exact MHD equilibrium and more realistic plasma profiles. Note that users can raise the fidelity of each component or add/remove components as needed, for instance, use TGLF for core transport and EPED for pedestal, rather than specify the constraint H98. 
 `Later  <https://github.com/ORNL-Fusion/tokdesigner-doc/tree/main/docs/under_construction.rst>`_.
 we will come back to use the full theory-based models.
 
@@ -128,7 +128,7 @@ The heating profile is specified by the Gaussian profile in the ``hcd_model`` co
 Run
 ---
 
-This simulation can be excuted on the login node of CORI using single core, taking only a couple of minuites. 
+This simulation can be excuted on the login node of CORI using single core, taking only a couple of minutes. 
 The bash script for run **submitjob.ex1**:
 
 .. code-block:: bash

@@ -9,4 +9,5 @@ Quick Start Guide
    step0
    step1
    step2
+   random_sample
 
