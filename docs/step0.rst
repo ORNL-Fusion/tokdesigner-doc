@@ -2,14 +2,14 @@
 Introduction
 ============
 
-If you are new to IPS-FASTRAN, see first `Quick start guide for IPS-FASTRAN 
+If you are new to IPS-FASTRAN, see first `Quick start guide for IPS-FASTRAN
 <https://github.com/ORNL-Fusion/tokdesigner-doc/tree/main/docs/under_construction.rst>`_.
 
-In this tutorial, we will use the TokDesigner base template `tokdesigner.config 
-<https://github.com/ORNL-Fusion/tokdesigner-doc/tree/main/docs/under_construction.rst>`_ 
-or the IPS-FASTRAN base template `fastran_scenario.config 
-<https://github.com/ORNL-Fusion/tokdesigner-doc/tree/main/docs/under_construction.rst>`_. 
-A few modifications to these templates (basically turn on/off necessary components or change constraints/parameters) will be made at each step as needed. 
+In this tutorial, we will use the TokDesigner base template `tokdesigner.config
+<https://github.com/ORNL-Fusion/tokdesigner-doc/tree/main/docs/under_construction.rst>`_
+or the IPS-FASTRAN base template `fastran_scenario.config
+<https://github.com/ORNL-Fusion/tokdesigner-doc/tree/main/docs/under_construction.rst>`_.
+A few modifications to these templates (basically turn on/off necessary components or change constraints/parameters) will be made at each step as needed.
 
 -----------------------------------
 Problem setup for quick start guide
@@ -33,9 +33,9 @@ Overviews
 
 :doc:`Step 3. Scan with random sampling<random_sample>`
 
-:doc:`Step 4. Generate reduced model<reduce>`
+:doc:`Step 4. Generate reduced model<reduced_model>`
 
-:doc:`Step 5. Filtering<filtering>`
+:doc:`Step 5. Evalution and filtering<evaluate>`
 
 :doc:`Step 6. Add low fidelity engineering modeling<external0>`
 
@@ -46,6 +46,3 @@ Overviews
 :doc:`Step 9. Add full phyiscs model: TGLF+EPED<physics>`
 
 :doc:`Step 10. Add medium fidelity engineering modeling<external1>`
-
-
-

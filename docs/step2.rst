@@ -17,7 +17,7 @@ Prepare a scan
 
 .. code-block:: bash
 
-    grid.py --input=grid.json --sim=32
+    grid.py --input=grid.json --nsim=32
 
 This will generate the input file for DAKOTA (dakota.in) and massive serial (inscan).
 The option ``--nsim`` specifies the number of cocurrent runs for DAKOTA.
@@ -228,7 +228,7 @@ Collect output files
 
 .. code-block:: bash
 
-  collect.py --rdir0=. --rdir=SCAN --sdir=SUMMRAY --input=collect.json
+  collect.py --rdir0=. --rdir=SCAN --sdir=SUMMARY --input=collect.json
 
 This will collect output files in the simulation directory ``SCAN`` into the summary directory ``SUMMARY``. 
 
