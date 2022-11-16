@@ -10,4 +10,6 @@ Quick Start Guide
    step1
    step2
    random_sample
+   reduced_model
+   evaluate
 
