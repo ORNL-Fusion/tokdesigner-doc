@@ -27,11 +27,11 @@ Determine **A** in the range of 2.5 ~ 3.5 for P_net > 50 MW
 Overviews
 ---------
 
-:doc:`Step 1. Equilibrium at the reference point<step1>`
+:doc:`Step 1. Equilibrium at the reference point<equilibrium>`
 
-:doc:`Step 2. Scan and build a database<step2>`
+:doc:`Step 2. Scan and build a database<scan_grid>`
 
-:doc:`Step 3. Scan with random sampling<random_sample>`
+:doc:`Step 3. Scan with random sampling<scan_random>`
 
 :doc:`Step 4. Generate reduced model<reduced_model>`
 

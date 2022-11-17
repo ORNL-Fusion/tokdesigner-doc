@@ -6,10 +6,9 @@ Quick Start Guide
    :maxdepth: 2
    :caption: Contents:
 
-   step0
-   step1
-   step2
-   random_sample
-   reduced_model
-   evaluate
+   quick_start_guide/introduction
+   quick_start_guide/scan_grid
+   quick_start_guide/scan_random
+   quick_start_guide/reduced_model
+   quick_start_guide/evaluate
 

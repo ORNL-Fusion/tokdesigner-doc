@@ -11,7 +11,7 @@ Welcome to TokDesigner's Documentation!
    :caption: Contents:
 
    introduction
-   workflow
+   tokdesigner_basic
    quick_start_guide
    developer
 
