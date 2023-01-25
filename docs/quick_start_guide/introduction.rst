@@ -37,7 +37,7 @@ Overviews
 
 :doc:`Step 5. Evalution and filtering<evaluate>`
 
-:doc:`Step 6. Add low fidelity engineering modeling<external0>`
+:doc:`Step 6. Add low fidelity engineering modeling<engineering_simple>`
 
 :doc:`Step 7. Constrained optimization<optimize>`
 

@@ -12,4 +12,5 @@ Quick Start Guide
    quick_start_guide/scan_random
    quick_start_guide/reduced_model
    quick_start_guide/evaluate
-
+   quick_start_guide/engineering_simple
+   quick_start_guide/optimize
