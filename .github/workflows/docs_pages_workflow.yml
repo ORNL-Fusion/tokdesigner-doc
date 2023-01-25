@@ -10,7 +10,9 @@ jobs:
     container: debian:buster-slim
  
     steps:
- 
+    - name: Change Owner of Container Working Directory
+        run: chown root:root .
+
     - name: Prereqs
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
