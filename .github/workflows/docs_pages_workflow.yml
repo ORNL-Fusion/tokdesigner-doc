@@ -11,7 +11,7 @@ jobs:
  
     steps:
     - name: Change Owner of Container Working Directory
-        run: chown root:root .
+      run: chown root:root .
 
     - name: Prereqs
       env:
