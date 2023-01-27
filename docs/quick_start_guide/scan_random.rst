@@ -15,7 +15,6 @@ This example samples the input parameters in 6-dimensional space: aspect ratio `
 
   One should argue that, for example, the toroidal field ``bt`` needs to be included in the scan in a way that lower ``aratio`` allows higher ``bt`` under the constraint of the maximum field at the TF coil. Note that this example is built for the purpose of workflow illustration.
 
-
 Prepare a scan
 ---------------
 

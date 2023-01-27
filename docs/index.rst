@@ -13,6 +13,8 @@ Welcome to TokDesigner's Documentation!
    introduction
    tokdesigner_basic
    quick_start_guide
+   user_manual
+   reference_manual
    developer
 
 
