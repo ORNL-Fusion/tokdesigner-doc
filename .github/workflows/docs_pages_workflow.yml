@@ -1,10 +1,8 @@
 name: docs_pages_workflow
  
-# execute this workflow automatically when a we push to master
 on:
-  push:
-    branches: [ main ]
- 
+  workflow_dispatch:
+
 jobs:
  
   build_docs_job:
@@ -12,7 +10,9 @@ jobs:
     container: debian:buster-slim
  
     steps:
- 
+    - name: Change Owner of Container Working Directory
+      run: chown root:root .
+
     - name: Prereqs
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
