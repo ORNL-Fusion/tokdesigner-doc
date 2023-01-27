@@ -1,0 +1,307 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Evaluate and apply filitering &mdash; TokDesigner 0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Add low fidelity engineering modeling" href="engineering_simple.html" />
+    <link rel="prev" title="Generate reduced model" href="reduced_model.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> TokDesigner
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tokdesigner_basic.html">TokDesigner Basic</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../quick_start_guide.html">Quick Start Guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="equilibrium.html">Equilibrium at the reference point</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scan_grid.html">Scan and build a database</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scan_random.html">Scan with random sampling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reduced_model.html">Generate reduced model</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Evaluate and apply filitering</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#template">Template</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#evaulation">Evaulation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#filtering">Filtering</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="engineering_simple.html">Add low fidelity engineering modeling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="optimize.html">Constrained optimization</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../user_manual.html">User Manual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer.html">Developer Guide</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">TokDesigner</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../quick_start_guide.html">Quick Start Guide</a> &raquo;</li>
+        
+      <li>Evaluate and apply filitering</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/quick_start_guide/evaluate.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="evaluate-and-apply-filitering">
+<h1>Evaluate and apply filitering<a class="headerlink" href="#evaluate-and-apply-filitering" title="Permalink to this headline">¶</a></h1>
+<p>This step illustrates how to evaluates the reactor performace parameters using the reduced system model developed in the previous section
+and filter for the desired reactor performance.</p>
+<div class="section" id="template">
+<h2>Template<a class="headerlink" href="#template" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://github.com/ORNL-Fusion/tokdesigner-doc/tree/main/examples/example4">example4</a></p>
+</div>
+<div class="section" id="evaulation">
+<h2>Evaulation<a class="headerlink" href="#evaulation" title="Permalink to this headline">¶</a></h2>
+<p>This example uses the reduced model file <code class="docutils literal notranslate"><span class="pre">fitout.json</span></code> from the previous section for the <code class="docutils literal notranslate"><span class="pre">fbs</span></code>, <code class="docutils literal notranslate"><span class="pre">pfus</span></code>, and <code class="docutils literal notranslate"><span class="pre">betan</span></code>.  The net electricity <code class="docutils literal notranslate"><span class="pre">pnet</span></code> model is a TokDiesigner <code class="docutils literal notranslate"><span class="pre">base</span></code> model.</p>
+<p><strong>Command line</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>evaluate.py --input<span class="o">=</span>evaluate.json --output<span class="o">=</span>evaluate.dat --nsample<span class="o">=</span><span class="m">100000</span>
+</pre></div>
+</div>
+<p>The evaluate.py generates a database file <code class="docutils literal notranslate"><span class="pre">evaluate.dat</span></code> in a multi-dimensional parameter space of <code class="docutils literal notranslate"><span class="pre">aratio</span></code>, <code class="docutils literal notranslate"><span class="pre">pinj</span></code>, <code class="docutils literal notranslate"><span class="pre">fgw_ped</span></code>, <code class="docutils literal notranslate"><span class="pre">nepeak</span></code>, and <code class="docutils literal notranslate"><span class="pre">h98</span></code> for the <code class="docutils literal notranslate"><span class="pre">--nsample</span></code> random data points (100,000 points).</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">In this example, the range of the scan variables is same to the random sampling range for IPS-FASTRAN (<a class="reference internal" href="scan_random.html"><span class="doc">Scan with Random Sampling</span></a>).  The extrapolation outside of the model data generation range is often employed with the Log-linear model but not likely accurate for the Neural Network model.</p>
+</div>
+<p><strong>evaluaion.json</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span> <span class="p">{</span>
+
+ <span class="s2">&quot;scan&quot;</span><span class="p">:</span> <span class="p">{</span>
+   <span class="s2">&quot;aratio&quot;</span>    <span class="p">:</span> <span class="p">{</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;range&quot;</span><span class="p">,</span> <span class="s2">&quot;ymin&quot;</span><span class="p">:</span><span class="mf">2.5</span><span class="p">,</span> <span class="s2">&quot;ymax&quot;</span><span class="p">:</span><span class="mf">3.5</span><span class="p">},</span>
+   <span class="s2">&quot;pinj&quot;</span>      <span class="p">:</span> <span class="p">{</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;range&quot;</span><span class="p">,</span> <span class="s2">&quot;ymin&quot;</span><span class="p">:</span><span class="mf">20.0</span><span class="p">,</span> <span class="s2">&quot;ymax&quot;</span><span class="p">:</span><span class="mf">50.0</span><span class="p">},</span>
+   <span class="s2">&quot;fgw_ped&quot;</span>   <span class="p">:</span> <span class="p">{</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;range&quot;</span><span class="p">,</span> <span class="s2">&quot;ymin&quot;</span><span class="p">:</span><span class="mf">0.7</span><span class="p">,</span> <span class="s2">&quot;ymax&quot;</span><span class="p">:</span><span class="mf">1.0</span><span class="p">},</span>
+   <span class="s2">&quot;nepeak&quot;</span>    <span class="p">:</span> <span class="p">{</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;range&quot;</span><span class="p">,</span> <span class="s2">&quot;ymin&quot;</span><span class="p">:</span><span class="mf">1.5</span><span class="p">,</span> <span class="s2">&quot;ymax&quot;</span><span class="p">:</span><span class="mf">2.0</span><span class="p">},</span>
+   <span class="s2">&quot;h98&quot;</span>       <span class="p">:</span> <span class="p">{</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;range&quot;</span><span class="p">,</span> <span class="s2">&quot;ymin&quot;</span><span class="p">:</span><span class="mf">0.9</span><span class="p">,</span> <span class="s2">&quot;ymax&quot;</span><span class="p">:</span><span class="mf">1.5</span><span class="p">}</span>
+ <span class="p">},</span>
+
+ <span class="s2">&quot;const&quot;</span><span class="p">:</span> <span class="p">{</span>
+   <span class="s2">&quot;a&quot;</span>       <span class="p">:</span> <span class="mf">1.3333</span><span class="p">,</span>
+   <span class="s2">&quot;kappa&quot;</span>   <span class="p">:</span> <span class="mf">2.0</span><span class="p">,</span>
+   <span class="s2">&quot;delta&quot;</span>   <span class="p">:</span> <span class="mf">0.6</span><span class="p">,</span>
+   <span class="s2">&quot;bt&quot;</span>      <span class="p">:</span> <span class="mf">4.0</span><span class="p">,</span>
+   <span class="s2">&quot;ip&quot;</span>      <span class="p">:</span> <span class="mf">8.1</span><span class="p">,</span>
+   <span class="s2">&quot;eta_cd&quot;</span>  <span class="p">:</span> <span class="mf">0.25</span><span class="p">,</span>
+   <span class="s2">&quot;eta_th&quot;</span>  <span class="p">:</span> <span class="mf">0.33</span>
+ <span class="p">},</span>
+
+<span class="s2">&quot;model&quot;</span><span class="p">:</span> <span class="p">{</span>
+   <span class="s2">&quot;r&quot;</span>          <span class="p">:</span> <span class="p">[</span><span class="s2">&quot;expr&quot;</span><span class="p">,</span> <span class="s2">&quot;a * aratio&quot;</span>                 <span class="p">],</span>
+   <span class="s2">&quot;betan_ped&quot;</span>  <span class="p">:</span> <span class="p">[</span><span class="s2">&quot;base&quot;</span><span class="p">,</span> <span class="p">{}</span>   <span class="p">],</span>
+   <span class="s2">&quot;te_ped&quot;</span>     <span class="p">:</span> <span class="p">[</span><span class="s2">&quot;base&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;dependency&quot;</span><span class="p">:</span><span class="s2">&quot;betan_ped&quot;</span><span class="p">}</span>   <span class="p">],</span>
+   <span class="s2">&quot;ti_ped&quot;</span>     <span class="p">:</span> <span class="p">[</span><span class="s2">&quot;expr&quot;</span><span class="p">,</span> <span class="s2">&quot;te_ped&quot;</span>                     <span class="p">],</span>
+   <span class="s2">&quot;ngw&quot;</span>        <span class="p">:</span> <span class="p">[</span><span class="s2">&quot;base&quot;</span><span class="p">,</span> <span class="p">{}</span>                           <span class="p">],</span>
+   <span class="s2">&quot;ne_ped&quot;</span>     <span class="p">:</span> <span class="p">[</span><span class="s2">&quot;expr&quot;</span><span class="p">,</span> <span class="s2">&quot;fgw_ped * ngw&quot;</span>              <span class="p">],</span>
+   <span class="s2">&quot;ne_axis&quot;</span>    <span class="p">:</span> <span class="p">[</span><span class="s2">&quot;expr&quot;</span><span class="p">,</span> <span class="s2">&quot;nepeak * ne_ped&quot;</span>            <span class="p">],</span>
+   <span class="s2">&quot;betan&quot;</span>      <span class="p">:</span> <span class="p">[</span><span class="s2">&quot;file&quot;</span><span class="p">,</span> <span class="s2">&quot;fitout.json&quot;</span> <span class="p">],</span>
+   <span class="s2">&quot;pfus&quot;</span>       <span class="p">:</span> <span class="p">[</span><span class="s2">&quot;file&quot;</span><span class="p">,</span> <span class="s2">&quot;fitout.json&quot;</span> <span class="p">],</span>
+   <span class="s2">&quot;fbs&quot;</span>        <span class="p">:</span> <span class="p">[</span><span class="s2">&quot;file&quot;</span><span class="p">,</span> <span class="s2">&quot;fitout.json&quot;</span> <span class="p">],</span>
+   <span class="s2">&quot;pnet&quot;</span>       <span class="p">:</span> <span class="p">[</span><span class="s2">&quot;base&quot;</span><span class="p">,</span> <span class="p">{}]</span>
+ <span class="p">}</span>
+
+ <span class="p">}</span>
+</pre></div>
+</div>
+<p>The content and format of the input file <code class="docutils literal notranslate"><span class="pre">evaluate.json</span></code> is identical to the <code class="docutils literal notranslate"><span class="pre">sample.json</span></code> except without the <code class="docutils literal notranslate"><span class="pre">io</span></code> section (see <a class="reference internal" href="scan_random.html"><span class="doc">Scan with Random Sampling</span></a>).  Note that the <code class="docutils literal notranslate"><span class="pre">model</span></code> section for the <code class="docutils literal notranslate"><span class="pre">betan</span></code>, <code class="docutils literal notranslate"><span class="pre">pfus</span></code>, and <code class="docutils literal notranslate"><span class="pre">fbs</span></code> points to the reduced model file <code class="docutils literal notranslate"><span class="pre">fitout.json</span></code>.</p>
+</div>
+<div class="section" id="filtering">
+<h2>Filtering<a class="headerlink" href="#filtering" title="Permalink to this headline">¶</a></h2>
+<p>The process is same to the <a class="reference internal" href="scan_random.html"><span class="doc">Direct Filtering</span></a> but with the database file <code class="docutils literal notranslate"><span class="pre">evaluate.dat</span></code> generated by the reduced system model.</p>
+<p><strong>Command line</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>filter.py --input<span class="o">=</span>filter.json --dbfile<span class="o">=</span>evaluate.dat --output<span class="o">=</span>filter.dat
+</pre></div>
+</div>
+<p><strong>filter.json</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="s2">&quot;filter&quot;</span><span class="p">:</span> <span class="p">{</span>
+  <span class="s2">&quot;fbs&quot;</span>  <span class="p">:</span> <span class="p">[</span><span class="s2">&quot;min&quot;</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">],</span>
+  <span class="s2">&quot;fbs&quot;</span>  <span class="p">:</span> <span class="p">[</span><span class="s2">&quot;max&quot;</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">],</span>
+  <span class="s2">&quot;pnet&quot;</span> <span class="p">:</span> <span class="p">[</span><span class="s2">&quot;min&quot;</span><span class="p">,</span> <span class="mf">50.0</span><span class="p">]</span>
+<span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>This is an example for the bootstrap current <code class="docutils literal notranslate"><span class="pre">0.8</span> <span class="pre">&lt;=</span> <span class="pre">fbs</span> <span class="pre">&lt;=</span> <span class="pre">1.0</span></code> and the net electricity <code class="docutils literal notranslate"><span class="pre">pnet</span> <span class="pre">&gt;=</span> <span class="pre">50</span> <span class="pre">MW</span></code>. The output database file <code class="docutils literal notranslate"><span class="pre">filter.dat</span></code> contains the filtered points satisfying these constraints.</p>
+<p>The indentified <code class="docutils literal notranslate"><span class="pre">aratio</span></code> range is <code class="docutils literal notranslate"><span class="pre">aratio</span> <span class="pre">&gt;</span> <span class="pre">3.1</span></code> for <code class="docutils literal notranslate"><span class="pre">0.8</span> <span class="pre">&lt;=</span> <span class="pre">fbs</span> <span class="pre">&lt;=</span> <span class="pre">1.0</span></code> and <code class="docutils literal notranslate"><span class="pre">pnet</span> <span class="pre">&gt;=</span> <span class="pre">50</span> <span class="pre">MW</span></code>, The results indicate that very high confinement <code class="docutils literal notranslate"><span class="pre">h98</span> <span class="pre">&gt;</span> <span class="pre">1.4</span></code> is required, but not necessarily high density peaking.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">Many parameters in the scan in this example such as the toroidal field, current, minor radius etc are constant. The results should not read like higher <cite>aratio</cite> is better.</p>
+</div>
+<a class="reference internal image-reference" href="../_images/filtering.png"><img alt="Evaluation and Filtering" class="align-center" src="../_images/filtering.png" style="width: 800px;" /></a>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="engineering_simple.html" class="btn btn-neutral float-right" title="Add low fidelity engineering modeling" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="reduced_model.html" class="btn btn-neutral float-left" title="Generate reduced model" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2023, ORNLFusion
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

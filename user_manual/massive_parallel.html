@@ -1,0 +1,367 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Massive Parallel &mdash; TokDesigner 0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Developer Guide" href="../developer.html" />
+    <link rel="prev" title="User Manual" href="../user_manual.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> TokDesigner
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tokdesigner_basic.html">TokDesigner Basic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quick_start_guide.html">Quick Start Guide</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../user_manual.html">User Manual</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Massive Parallel</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#template">Template</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#prepare-a-scan">Prepare a scan</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#collect-output-files">Collect output files</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../developer.html">Developer Guide</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">TokDesigner</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../user_manual.html">User Manual</a> &raquo;</li>
+        
+      <li>Massive Parallel</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/user_manual/massive_parallel.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="massive-parallel">
+<h1>Massive Parallel<a class="headerlink" href="#massive-parallel" title="Permalink to this headline">¶</a></h1>
+<p>The section shows how to setup a large ensemble simulation using the Massive Parallel workflow with the <a class="reference internal" href="../quick_start_guide/scan_random.html"><span class="doc">the random sampling example</span></a>.</p>
+<div class="section" id="template">
+<h2>Template<a class="headerlink" href="#template" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://github.com/ORNL-Fusion/tokdesigner-doc/tree/main/examples/example1">example6</a></p>
+</div>
+<div class="section" id="prepare-a-scan">
+<h2>Prepare a scan<a class="headerlink" href="#prepare-a-scan" title="Permalink to this headline">¶</a></h2>
+<p><strong>Command line</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sample.py --input<span class="o">=</span>sample.json --nsample<span class="o">=</span><span class="m">1024</span> --inscan
+</pre></div>
+</div>
+<p>This generates the input file <em>inscan</em> for the Massive Serial workflow. The number of sample points is specified by the <code class="docutils literal notranslate"><span class="pre">--nsample</span></code> option.</p>
+<p><strong>Job submission file</strong> (CORI)</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash -l</span>
+<span class="c1">#SBATCH --image=registry.services.nersc.gov/parkjm/ips-fastran:latest</span>
+<span class="c1">#SBATCH --volume=&quot;/global/cscratch1/sd/parkjm/tmpfiles:/tmp:perNodeCache=size=10G&quot;</span>
+<span class="c1">#SBATCH -p regular</span>
+<span class="c1">#SBATCH -N 4</span>
+<span class="c1">#SBATCH -t 00:30:00</span>
+<span class="c1">#SBATCH -J ips_fastran</span>
+<span class="c1">#SBATCH -e ips.err</span>
+<span class="c1">#SBATCH -o ips.out</span>
+<span class="c1">#SBATCH -C haswell</span>
+
+module load python
+<span class="nb">source</span> activate /global/common/software/atom/cori/cesol_conda/latest
+
+ips.py <span class="se">\</span>
+--config<span class="o">=</span>ips_massive_parallel.config <span class="se">\</span>
+--platform<span class="o">=</span>cori_haswell.conf <span class="se">\</span>
+--log<span class="o">=</span>ips.log
+</pre></div>
+</div>
+<p>This example uses 4 nodes (each node has 32 cores, total 128 cores) and executes <strong>128</strong> IPS-FASTRAN runs simultaneously. As soon as any IPS-FASTRAN run finished, a new IPS-FASTRAN instance in the task pool will be launched until the total 1024 simulations are completed.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1">#SBATCH --image=registry.services.nersc.gov/parkjm/ips-fastran:latest</span>
+</pre></div>
+</div>
+<p>The Massive Serial workflow uses the IPS-FASTRAN/CESOL Docker image, which can be specified by the <code class="docutils literal notranslate"><span class="pre">--image</span></code> option.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1">#SBATCH --volume=&quot;/global/cscratch1/sd/parkjm/tmpfiles:/tmp:perNodeCache=size=10G&quot;</span>
+</pre></div>
+</div>
+<p>It is important for the large ensemble simulation to use the temporary file system (XFS) to minimize overhead to the file system.
+The <cite>/tmp</cite> directory in the computatio node is mounted to the user’s <code class="docutils literal notranslate"><span class="pre">$SCRATCH</span></code> directory as specified by the option <code class="docutils literal notranslate"><span class="pre">--volume=&lt;your</span> <span class="pre">$SCRATH&gt;/tmpfiles:/tmp:perNodeCache=size=10G</span></code></p>
+<p><strong>Configuration file for Massive Parallel</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># ======================================================================</span>
+<span class="c1"># TEMPLATE FOR IPS_MASSIVE_SERIAL</span>
+
+<span class="c1"># ======================================================================</span>
+<span class="c1"># SIMULATION INFO SECTION</span>
+<span class="c1"># ======================================================================</span>
+
+<span class="nv">RUN_ID</span> <span class="o">=</span> ips_massive_parallel
+
+<span class="nv">SIM_NAME</span> <span class="o">=</span> fastran_scan
+
+<span class="nv">OUTPUT_PREFIX</span> <span class="o">=</span>
+<span class="nv">LOG_FILE</span> <span class="o">=</span> <span class="si">${</span><span class="nv">RUN_ID</span><span class="si">}</span>.log
+<span class="nv">LOG_LEVEL</span> <span class="o">=</span> DEBUG
+
+<span class="nv">SIM_ROOT</span> <span class="o">=</span> <span class="si">${</span><span class="nv">PWD</span><span class="si">}</span>/RUN
+<span class="nv">INPUT_DIR_SIM</span> <span class="o">=</span> <span class="si">${</span><span class="nv">PWD</span><span class="si">}</span>
+
+<span class="nv">RUN_COMMENT</span> <span class="o">=</span> ips-fastran scan with massive parallel
+<span class="nv">TAG</span> <span class="o">=</span>
+
+<span class="nv">SIMULATION_MODE</span> <span class="o">=</span> NORMAL
+
+<span class="nv">USE_PORTAL</span> <span class="o">=</span> True
+<span class="nv">PORTAL_URL</span> <span class="o">=</span> http://lb.ipsportal.production.svc.spin.nersc.org
+
+<span class="c1"># ======================================================================</span>
+<span class="c1"># PLASMA STATE SECTION</span>
+<span class="c1"># ======================================================================</span>
+
+<span class="nv">STATE_WORK_DIR</span> <span class="o">=</span> <span class="si">${</span><span class="nv">SIM_ROOT</span><span class="si">}</span>/work/plasma_state
+<span class="nv">STATE_FILES</span> <span class="o">=</span>
+
+<span class="c1"># ======================================================================</span>
+<span class="c1"># PORTS SECTION</span>
+<span class="c1"># ======================================================================</span>
+
+<span class="o">[</span>PORTS<span class="o">]</span>
+    <span class="nv">NAMES</span> <span class="o">=</span> INIT DRIVER
+    <span class="nv">POSTS</span> <span class="o">=</span>
+
+    <span class="o">[[</span>INIT<span class="o">]]</span>
+        <span class="nv">IMPLEMENTATION</span> <span class="o">=</span> dummy_init
+
+    <span class="o">[[</span>DRIVER<span class="o">]]</span>
+        <span class="nv">IMPLEMENTATION</span> <span class="o">=</span> ips_massive_parallel
+
+<span class="c1"># ======================================================================</span>
+<span class="c1"># COMPONENT CONFIGURATION SECTION</span>
+<span class="c1"># ======================================================================</span>
+
+<span class="o">[</span>dummy_init<span class="o">]</span>
+    <span class="nv">CLASS</span> <span class="o">=</span> fastran
+    <span class="nv">SUB_CLASS</span> <span class="o">=</span>
+    <span class="nv">NAME</span> <span class="o">=</span> dummy_init
+    <span class="nv">MODULE</span> <span class="o">=</span> fastran.dummy.dummy_init
+    <span class="nv">SCRIPT</span> <span class="o">=</span>
+    <span class="nv">BIN_PATH</span> <span class="o">=</span>
+    <span class="nv">BIN</span> <span class="o">=</span>
+    <span class="nv">NPROC</span> <span class="o">=</span>
+    <span class="nv">INPUT_DIR</span> <span class="o">=</span>
+    <span class="nv">INPUT_FILES</span> <span class="o">=</span>
+    <span class="nv">OUTPUT_FILES</span> <span class="o">=</span>
+    <span class="nv">RESTART_FILES</span> <span class="o">=</span>
+
+<span class="o">[</span>ips_massive_parallel<span class="o">]</span>
+    <span class="nv">CLASS</span> <span class="o">=</span> fastran
+    <span class="nv">SUB_CLASS</span> <span class="o">=</span>
+    <span class="nv">NAME</span> <span class="o">=</span> ips_massive_parallel
+    <span class="nv">MODULE</span> <span class="o">=</span> fastran.driver.ips_massive_parallel
+    <span class="nv">SCRIPT</span> <span class="o">=</span>
+    <span class="nv">BIN_PATH</span> <span class="o">=</span>
+    <span class="nv">BIN</span> <span class="o">=</span>
+    <span class="nv">NPROC</span> <span class="o">=</span>
+    <span class="nv">DASK_NODES</span> <span class="o">=</span> <span class="si">${</span><span class="nv">SLURM_NNODES</span><span class="si">}</span>
+    <span class="nv">INPUT_DIR</span> <span class="o">=</span> <span class="nv">$INPUT_DIR_SIM</span>
+    <span class="nv">SIMULATION</span> <span class="o">=</span> fastran_scenario.config
+    <span class="nv">INSCAN</span> <span class="o">=</span> inscan
+    <span class="nv">INPUT_FILES</span> <span class="o">=</span> <span class="si">${</span><span class="nv">SIMULATION</span><span class="si">}</span> <span class="nv">$INSCAN</span>
+    <span class="nv">SUMMARY</span> <span class="o">=</span> <span class="si">${</span><span class="nv">PWD</span><span class="si">}</span>/SUMMARY
+    <span class="nv">ARCHIVE_FILES</span> <span class="o">=</span>
+    <span class="nv">OUTPUT_FILES</span> <span class="o">=</span>
+    <span class="nv">RESTART_FILES</span> <span class="o">=</span>
+    <span class="nv">CLEAN_AFTER</span> <span class="o">=</span> <span class="m">0</span>
+    <span class="nv">TIME_OUT</span> <span class="o">=</span> <span class="m">3600</span>
+    <span class="nv">TMPXFS</span> <span class="o">=</span> /tmp
+    <span class="nv">TASK_PPN</span> <span class="o">=</span> <span class="m">32</span>
+    <span class="nv">TASK_NPROC</span> <span class="o">=</span> <span class="m">1</span>
+</pre></div>
+</div>
+<p>This launch the IPS-FASTRAN workflow with the simulation configuration file <code class="docutils literal notranslate"><span class="pre">SIMULATION</span> <span class="pre">=</span> <span class="pre">fastran_scenario.config</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">TASK_NPROC</span></code> is the maximum number of cores to be used in each IPS-FASTRAN simulation (1 core).
+<code class="docutils literal notranslate"><span class="pre">TASK_PPN</span></code> is the number of concurrent runs on each node (32 tasks).</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">More cores can be assigned to each IPS-FASTRAN simulation, for example <code class="docutils literal notranslate"><span class="pre">TASK_NPROC</span> <span class="pre">=</span> <span class="pre">32</span></code> and <code class="docutils literal notranslate"><span class="pre">TASK_PPN</span> <span class="pre">=</span> <span class="pre">1</span></code> (single concurrent IPS-FASTRAN simulation per node) to speed up the FASTRAN solver component with TGLF and the NUBEAM component with more Monte-Carlo particles. Over subscription (for example,  <code class="docutils literal notranslate"><span class="pre">TASK_NPROC</span> <span class="pre">=</span> <span class="pre">8</span></code> and <code class="docutils literal notranslate"><span class="pre">TASK_PPN</span> <span class="pre">=</span> <span class="pre">6</span></code>) often improves the overall load balancing if the IPS-FASTRAN includes many serial code components such as TORAY, EFIT etc.</p>
+</div>
+</div>
+<div class="section" id="collect-output-files">
+<h2>Collect output files<a class="headerlink" href="#collect-output-files" title="Permalink to this headline">¶</a></h2>
+<p>The <cite>/tmp</cite> directory is not accessible after the simulation finishes. The output files will be copied to the directory specified in the Massive Serial configuration file (<code class="docutils literal notranslate"><span class="pre">SUMMARY</span> <span class="pre">=</span> <span class="pre">${PWD}/SUMMARY</span></code>) as a compressed tar file (<code class="docutils literal notranslate"><span class="pre">*.tar.gz</span></code>), which in default contains the FASTRAN netcdf output (<code class="docutils literal notranslate"><span class="pre">f*.*</span></code>), the EFIT geqdsk (<code class="docutils literal notranslate"><span class="pre">g*.*</span></code>), and the instate file (<code class="docutils literal notranslate"><span class="pre">i*.*</span></code>).</p>
+<p>Additional files to be archived can be also specified. For example, the nubeam output files:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">ARCHIVE_FILES</span> <span class="o">=</span> run?????/simulation_results/fastran_nb_nubeam*/*
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../developer.html" class="btn btn-neutral float-right" title="Developer Guide" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../user_manual.html" class="btn btn-neutral float-left" title="User Manual" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2023, ORNLFusion
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,250 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Introduction &mdash; TokDesigner 0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Equilibrium at the reference point" href="equilibrium.html" />
+    <link rel="prev" title="Quick Start Guide" href="../quick_start_guide.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> TokDesigner
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tokdesigner_basic.html">TokDesigner Basic</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../quick_start_guide.html">Quick Start Guide</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Introduction</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#problem-setup-for-quick-start-guide">Problem setup for quick start guide</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#overviews">Overviews</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="equilibrium.html">Equilibrium at the reference point</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scan_grid.html">Scan and build a database</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scan_random.html">Scan with random sampling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reduced_model.html">Generate reduced model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="evaluate.html">Evaluate and apply filitering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="engineering_simple.html">Add low fidelity engineering modeling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="optimize.html">Constrained optimization</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../user_manual.html">User Manual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer.html">Developer Guide</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">TokDesigner</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../quick_start_guide.html">Quick Start Guide</a> &raquo;</li>
+        
+      <li>Introduction</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/quick_start_guide/introduction.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="introduction">
+<h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
+<p>If you are new to IPS-FASTRAN, see first <a class="reference external" href="https://github.com/ORNL-Fusion/tokdesigner-doc/tree/main/docs/under_construction.rst">Quick start guide for IPS-FASTRAN</a>.</p>
+<p>In this tutorial, we will use the TokDesigner base template <a class="reference external" href="https://github.com/ORNL-Fusion/tokdesigner-doc/tree/main/docs/under_construction.rst">tokdesigner.config</a>
+or the IPS-FASTRAN base template <a class="reference external" href="https://github.com/ORNL-Fusion/tokdesigner-doc/tree/main/docs/under_construction.rst">fastran_scenario.config</a>.
+A few modifications to these templates (basically turn on/off necessary components or change constraints/parameters) will be made at each step as needed.</p>
+<div class="section" id="problem-setup-for-quick-start-guide">
+<h2>Problem setup for quick start guide<a class="headerlink" href="#problem-setup-for-quick-start-guide" title="Permalink to this headline">¶</a></h2>
+<p>CAT-like reactor</p>
+<ul class="simple">
+<li>R = 4 m, <strong>A</strong> = 3, 𝜅 = 2, 𝛿 = 0.6</li>
+<li>BT = 7 T, Ip = 8.1 MA</li>
+<li>P = 38 MW</li>
+</ul>
+<p>Determine <strong>A</strong> in the range of 2.5 ~ 3.5 for P_net &gt; 50 MW</p>
+</div>
+<div class="section" id="overviews">
+<h2>Overviews<a class="headerlink" href="#overviews" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference internal" href="equilibrium.html"><span class="doc">Step 1. Equilibrium at the reference point</span></a></p>
+<p><a class="reference internal" href="scan_grid.html"><span class="doc">Step 2. Scan and build a database</span></a></p>
+<p><a class="reference internal" href="scan_random.html"><span class="doc">Step 3. Scan with random sampling</span></a></p>
+<p><a class="reference internal" href="reduced_model.html"><span class="doc">Step 4. Generate reduced model</span></a></p>
+<p><a class="reference internal" href="evaluate.html"><span class="doc">Step 5. Evalution and filtering</span></a></p>
+<p><a class="reference internal" href="engineering_simple.html"><span class="doc">Step 6. Add low fidelity engineering modeling</span></a></p>
+<p><a class="reference internal" href="optimize.html"><span class="doc">Step 7. Constrained optimization</span></a></p>
+<p><span class="xref std std-doc">Step 8. Add full phyiscs model: H/CD</span></p>
+<p><span class="xref std std-doc">Step 9. Add full phyiscs model: TGLF+EPED</span></p>
+<p><span class="xref std std-doc">Step 10. Add medium fidelity engineering modeling</span></p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="equilibrium.html" class="btn btn-neutral float-right" title="Equilibrium at the reference point" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../quick_start_guide.html" class="btn btn-neutral float-left" title="Quick Start Guide" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2023, ORNLFusion
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

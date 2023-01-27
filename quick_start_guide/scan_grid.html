@@ -1,0 +1,497 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Scan and build a database &mdash; TokDesigner 0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Scan with random sampling" href="scan_random.html" />
+    <link rel="prev" title="Equilibrium at the reference point" href="equilibrium.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> TokDesigner
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tokdesigner_basic.html">TokDesigner Basic</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../quick_start_guide.html">Quick Start Guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="equilibrium.html">Equilibrium at the reference point</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Scan and build a database</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#template">Template</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#prepare-a-scan">Prepare a scan</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#job-submission-on-cori">Job submission on CORI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#collect-output-files">Collect output files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#build-a-database">Build a database</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="scan_random.html">Scan with random sampling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reduced_model.html">Generate reduced model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="evaluate.html">Evaluate and apply filitering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="engineering_simple.html">Add low fidelity engineering modeling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="optimize.html">Constrained optimization</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../user_manual.html">User Manual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer.html">Developer Guide</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">TokDesigner</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../quick_start_guide.html">Quick Start Guide</a> &raquo;</li>
+        
+      <li>Scan and build a database</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/quick_start_guide/scan_grid.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="scan-and-build-a-database">
+<h1>Scan and build a database<a class="headerlink" href="#scan-and-build-a-database" title="Permalink to this headline">¶</a></h1>
+<p>This section  illustrates how to 1) prepare a scan, 2) submit a job with DAKOTA or massive serial, 3) collect output files, and 4) build a database.
+We will use a 2D scan example - aspect ratio and heating power.</p>
+<div class="section" id="template">
+<h2>Template<a class="headerlink" href="#template" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://github.com/ORNL-Fusion/tokdesigner-doc/tree/main/examples/example1">example1</a></p>
+</div>
+<div class="section" id="prepare-a-scan">
+<h2>Prepare a scan<a class="headerlink" href="#prepare-a-scan" title="Permalink to this headline">¶</a></h2>
+<p><strong>Command line</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>grid.py --input<span class="o">=</span>grid.json --nsim<span class="o">=</span><span class="m">32</span>
+</pre></div>
+</div>
+<p>This will generate the input file for DAKOTA (dakota.in) and massive serial (inscan).
+The option <code class="docutils literal notranslate"><span class="pre">--nsim</span></code> specifies the number of cocurrent runs for DAKOTA.</p>
+<p><strong>grid.json</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;scan&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;aratio&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;range&quot;</span><span class="p">,</span> <span class="s2">&quot;ymin&quot;</span><span class="p">:</span><span class="mf">2.5</span><span class="p">,</span> <span class="s2">&quot;ymax&quot;</span><span class="p">:</span><span class="mf">3.5</span><span class="p">,</span> <span class="s2">&quot;ndata&quot;</span><span class="p">:</span><span class="mi">8</span><span class="p">},</span>
+    <span class="s2">&quot;pinj&quot;</span>  <span class="p">:</span> <span class="p">{</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;list&quot;</span><span class="p">,</span> <span class="s2">&quot;data&quot;</span><span class="p">:[</span><span class="mf">20.0</span><span class="p">,</span> <span class="mf">30.0</span><span class="p">,</span> <span class="mf">40.0</span><span class="p">,</span> <span class="mf">50.0</span><span class="p">]}</span>
+  <span class="p">},</span>
+
+  <span class="s2">&quot;const&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;a&quot;</span>       <span class="p">:</span> <span class="mf">1.3333</span><span class="p">,</span>
+    <span class="s2">&quot;kappa&quot;</span>   <span class="p">:</span> <span class="mf">2.0</span><span class="p">,</span>
+    <span class="s2">&quot;delta&quot;</span>   <span class="p">:</span> <span class="mf">0.6</span><span class="p">,</span>
+
+    <span class="s2">&quot;bt&quot;</span>      <span class="p">:</span> <span class="mf">4.0</span><span class="p">,</span>
+    <span class="s2">&quot;ip&quot;</span>      <span class="p">:</span> <span class="mf">8.1</span><span class="p">,</span>
+
+    <span class="s2">&quot;xwid&quot;</span>    <span class="p">:</span> <span class="mf">0.08</span><span class="p">,</span>
+    <span class="s2">&quot;xmid&quot;</span>    <span class="p">:</span> <span class="mf">0.96</span><span class="p">,</span>
+
+    <span class="s2">&quot;nepeak&quot;</span>  <span class="p">:</span> <span class="mf">1.75</span><span class="p">,</span>
+    <span class="s2">&quot;fgw_ped&quot;</span> <span class="p">:</span> <span class="mf">0.9</span><span class="p">,</span>
+    <span class="s2">&quot;f_nesep&quot;</span> <span class="p">:</span> <span class="mf">0.5</span><span class="p">,</span>
+
+    <span class="s2">&quot;h98&quot;</span>     <span class="p">:</span> <span class="mf">1.35</span><span class="p">,</span>
+
+    <span class="s2">&quot;f_pinj_e&quot;</span><span class="p">:</span> <span class="mf">0.75</span>
+ <span class="p">},</span>
+
+ <span class="s2">&quot;model&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;r&quot;</span>           <span class="p">:</span> <span class="p">[</span><span class="s2">&quot;expr&quot;</span><span class="p">,</span> <span class="s2">&quot;a * aratio&quot;</span>                 <span class="p">],</span>
+    <span class="s2">&quot;betan_ped&quot;</span>   <span class="p">:</span> <span class="p">[</span><span class="s2">&quot;base&quot;</span><span class="p">,</span> <span class="p">{}</span>                           <span class="p">],</span>
+    <span class="s2">&quot;te_ped&quot;</span>      <span class="p">:</span> <span class="p">[</span><span class="s2">&quot;base&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;dependency&quot;</span><span class="p">:</span><span class="s2">&quot;betan_ped&quot;</span><span class="p">}</span>   <span class="p">],</span>
+    <span class="s2">&quot;ti_ped&quot;</span>      <span class="p">:</span> <span class="p">[</span><span class="s2">&quot;expr&quot;</span><span class="p">,</span> <span class="s2">&quot;te_ped&quot;</span>                     <span class="p">],</span>
+    <span class="s2">&quot;te_axis&quot;</span>     <span class="p">:</span> <span class="p">[</span><span class="s2">&quot;expr&quot;</span><span class="p">,</span> <span class="s2">&quot;5.75 * te_ped&quot;</span>              <span class="p">],</span>
+    <span class="s2">&quot;ti_axis&quot;</span>     <span class="p">:</span> <span class="p">[</span><span class="s2">&quot;expr&quot;</span><span class="p">,</span> <span class="s2">&quot;5.0 * ti_ped&quot;</span>               <span class="p">],</span>
+    <span class="s2">&quot;ngw&quot;</span>         <span class="p">:</span> <span class="p">[</span><span class="s2">&quot;base&quot;</span><span class="p">,</span> <span class="p">{}</span>                           <span class="p">],</span>
+    <span class="s2">&quot;ne_ped&quot;</span>      <span class="p">:</span> <span class="p">[</span><span class="s2">&quot;expr&quot;</span><span class="p">,</span> <span class="s2">&quot;fgw_ped * ngw&quot;</span>              <span class="p">],</span>
+    <span class="s2">&quot;ne_axis&quot;</span>     <span class="p">:</span> <span class="p">[</span><span class="s2">&quot;expr&quot;</span><span class="p">,</span> <span class="s2">&quot;nepeak * ne_ped&quot;</span>            <span class="p">],</span>
+    <span class="s2">&quot;ne_sep&quot;</span>      <span class="p">:</span> <span class="p">[</span><span class="s2">&quot;expr&quot;</span><span class="p">,</span> <span class="s2">&quot;f_nesep * ne_ped&quot;</span>           <span class="p">],</span>
+    <span class="s2">&quot;pinj_e&quot;</span>      <span class="p">:</span> <span class="p">[</span><span class="s2">&quot;expr&quot;</span><span class="p">,</span> <span class="s2">&quot;pinj * f_pinj_e&quot;</span>            <span class="p">],</span>
+    <span class="s2">&quot;pinj_i&quot;</span>      <span class="p">:</span> <span class="p">[</span><span class="s2">&quot;expr&quot;</span><span class="p">,</span> <span class="s2">&quot;pinj * ( 1.0 - f_pinj_e ) &quot;</span> <span class="p">]</span>
+  <span class="p">},</span>
+
+ <span class="s2">&quot;io&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;index&quot;</span>       <span class="p">:</span> <span class="p">[</span><span class="s2">&quot;efit&quot;</span>        <span class="p">,</span> <span class="s2">&quot;TIME_ID&quot;</span>    <span class="p">],</span>
+
+    <span class="s2">&quot;r&quot;</span>           <span class="p">:</span> <span class="p">[</span><span class="s2">&quot;fastran_init&quot;</span><span class="p">,</span> <span class="s2">&quot;R0&quot;</span>         <span class="p">],</span>
+    <span class="s2">&quot;a&quot;</span>           <span class="p">:</span> <span class="p">[</span><span class="s2">&quot;fastran_init&quot;</span><span class="p">,</span> <span class="s2">&quot;A0&quot;</span>         <span class="p">],</span>
+    <span class="s2">&quot;kappa&quot;</span>       <span class="p">:</span> <span class="p">[</span><span class="s2">&quot;fastran_init&quot;</span><span class="p">,</span> <span class="s2">&quot;KAPPA&quot;</span>      <span class="p">],</span>
+    <span class="s2">&quot;delta&quot;</span>       <span class="p">:</span> <span class="p">[</span><span class="s2">&quot;fastran_init&quot;</span><span class="p">,</span> <span class="s2">&quot;DELTA&quot;</span>      <span class="p">],</span>
+
+    <span class="s2">&quot;bt&quot;</span>          <span class="p">:</span> <span class="p">[</span><span class="s2">&quot;fastran_init&quot;</span><span class="p">,</span> <span class="s2">&quot;B0&quot;</span>         <span class="p">],</span>
+    <span class="s2">&quot;ip&quot;</span>          <span class="p">:</span> <span class="p">[</span><span class="s2">&quot;fastran_init&quot;</span><span class="p">,</span> <span class="s2">&quot;IP&quot;</span>         <span class="p">],</span>
+
+    <span class="s2">&quot;xwid&quot;</span>        <span class="p">:</span> <span class="p">[</span><span class="s2">&quot;fastran_init&quot;</span><span class="p">,</span> <span class="s2">&quot;XWID&quot;</span>       <span class="p">],</span>
+    <span class="s2">&quot;xmid&quot;</span>        <span class="p">:</span> <span class="p">[</span><span class="s2">&quot;fastran_init&quot;</span><span class="p">,</span> <span class="s2">&quot;XMID&quot;</span>       <span class="p">],</span>
+
+    <span class="s2">&quot;ne_axis&quot;</span>     <span class="p">:</span> <span class="p">[</span><span class="s2">&quot;fastran_init&quot;</span><span class="p">,</span> <span class="s2">&quot;NE_AXIS&quot;</span>    <span class="p">],</span>
+    <span class="s2">&quot;ne_ped&quot;</span>      <span class="p">:</span> <span class="p">[</span><span class="s2">&quot;fastran_init&quot;</span><span class="p">,</span> <span class="s2">&quot;NE_PED&quot;</span>     <span class="p">],</span>
+    <span class="s2">&quot;ne_sep&quot;</span>      <span class="p">:</span> <span class="p">[</span><span class="s2">&quot;fastran_init&quot;</span><span class="p">,</span> <span class="s2">&quot;NE_SEP&quot;</span>     <span class="p">],</span>
+
+    <span class="s2">&quot;te_axis&quot;</span>     <span class="p">:</span> <span class="p">[</span><span class="s2">&quot;fastran_init&quot;</span><span class="p">,</span> <span class="s2">&quot;TE_AXIS&quot;</span>    <span class="p">],</span>
+    <span class="s2">&quot;te_ped&quot;</span>      <span class="p">:</span> <span class="p">[</span><span class="s2">&quot;fastran_init&quot;</span><span class="p">,</span> <span class="s2">&quot;TE_PED&quot;</span>     <span class="p">],</span>
+
+    <span class="s2">&quot;ti_axis&quot;</span>     <span class="p">:</span> <span class="p">[</span><span class="s2">&quot;fastran_init&quot;</span><span class="p">,</span> <span class="s2">&quot;TI_AXIS&quot;</span>    <span class="p">],</span>
+    <span class="s2">&quot;ti_ped&quot;</span>      <span class="p">:</span> <span class="p">[</span><span class="s2">&quot;fastran_init&quot;</span><span class="p">,</span> <span class="s2">&quot;TI_PED&quot;</span>     <span class="p">],</span>
+
+    <span class="s2">&quot;h98&quot;</span>         <span class="p">:</span> <span class="p">[</span><span class="s2">&quot;fastran_init&quot;</span><span class="p">,</span> <span class="s2">&quot;H98_TARGET&quot;</span> <span class="p">],</span>
+
+    <span class="s2">&quot;pinj_e&quot;</span>      <span class="p">:</span> <span class="p">[</span><span class="s2">&quot;hcd_model&quot;</span>   <span class="p">,</span> <span class="s2">&quot;INHCD_PE_0&quot;</span> <span class="p">],</span>
+    <span class="s2">&quot;pinj_i&quot;</span>      <span class="p">:</span> <span class="p">[</span><span class="s2">&quot;hcd_model&quot;</span>   <span class="p">,</span> <span class="s2">&quot;INHCD_PI_0&quot;</span> <span class="p">]</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The TokDesigner variables consist of the variables defined in the <code class="docutils literal notranslate"><span class="pre">scan</span></code>, <code class="docutils literal notranslate"><span class="pre">const</span></code>, and <code class="docutils literal notranslate"><span class="pre">model</span></code> sections.</p>
+<p><strong>Scan section</strong></p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">aratio</span></code> (aspect ratio) : ndata points (8) between the minimum value (2.5) and the maximum value (3.5)</li>
+<li><code class="docutils literal notranslate"><span class="pre">pinj</span></code> (injection power, MW) : 4 points are given by the user input list [20.0, 30.0, 40.0, 50.0]</li>
+<li>Number of total scan =  8 * 4 = 32</li>
+</ul>
+<p><strong>Const section</strong></p>
+<p>The <code class="docutils literal notranslate"><span class="pre">const</span></code> section defines the constant TokDesigner variables.</p>
+<p><strong>Model section</strong></p>
+<p>The variables in the model section are determined by the predefined models or user defined formula.
+For instance, the major radius <code class="docutils literal notranslate"><span class="pre">r</span></code> has the type <code class="docutils literal notranslate"><span class="pre">expr</span></code> (expression type), so will be specified by the expression <code class="docutils literal notranslate"><span class="pre">r</span> <span class="pre">=</span> <span class="pre">aratio</span> <span class="pre">*</span> <span class="pre">a</span></code>.
+Note that we defined <code class="docutils literal notranslate"><span class="pre">aratio</span></code> as a scan variable and <code class="docutils literal notranslate"><span class="pre">a</span></code> as a constant variable to calculate <code class="docutils literal notranslate"><span class="pre">r</span></code>.</p>
+<hr class="docutils" />
+<p>Exercise: aspect ratio scan with the fixed major radius <code class="docutils literal notranslate"><span class="pre">r</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;scan&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;aratio&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;range&quot;</span><span class="p">,</span> <span class="s2">&quot;ymin&quot;</span><span class="p">:</span><span class="mf">2.5</span><span class="p">,</span> <span class="s2">&quot;ymax&quot;</span><span class="p">:</span><span class="mf">3.5</span><span class="p">,</span> <span class="s2">&quot;ndata&quot;</span><span class="p">:</span><span class="mi">8</span><span class="p">},</span>
+    <span class="o">...</span>
+  <span class="p">}</span>
+  <span class="s2">&quot;constant&quot;</span> <span class="p">{</span>
+    <span class="s2">&quot;r: 4.0,</span>
+    <span class="o">...</span>
+  <span class="p">}</span>
+  <span class="s2">&quot;model&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;a&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;expr&quot;</span><span class="p">,</span> <span class="s2">&quot;r / aratio&quot;</span><span class="p">],</span>
+    <span class="o">...</span>
+    <span class="p">}</span>
+  <span class="o">...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<hr class="docutils" />
+<p>TokDesigner provides a range of simplified <strong>models</strong>. In this example, the pedestal betan <code class="docutils literal notranslate"><span class="pre">betan_ped</span></code> is a <code class="docutils literal notranslate"><span class="pre">base</span></code> model variable, where <code class="docutils literal notranslate"><span class="pre">betan_ped</span></code> is calculated by the TokDesigner model (Phil Snyder’s simple triangularity <code class="docutils literal notranslate"><span class="pre">delta</span></code> scaling):</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">kernel.base.tokamak_parameter</span> <span class="kn">import</span> <span class="n">TokamakParameter</span>
+
+<span class="c1"># normalized beta at pedestal</span>
+<span class="k">class</span> <span class="nc">betan_ped_model</span><span class="p">(</span><span class="n">TokamakParameter</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="s1">&#39;base&#39;</span><span class="p">):</span>
+        <span class="n">TokamakParameter</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dependency</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;delta&quot;</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="nf">base_model</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ps</span><span class="p">):</span>
+        <span class="n">delta</span> <span class="o">=</span>  <span class="n">ps</span><span class="p">[</span><span class="s2">&quot;delta&quot;</span><span class="p">]</span>
+        <span class="n">betanped</span> <span class="o">=</span> <span class="mf">0.2</span> <span class="o">+</span> <span class="mf">1.3</span><span class="o">*</span><span class="n">delta</span>
+        <span class="k">return</span> <span class="n">betanped</span>
+</pre></div>
+</div>
+<p>Then, the pedestal electron temperature <code class="docutils literal notranslate"><span class="pre">te_ped</span></code> is calculated by the <code class="docutils literal notranslate"><span class="pre">base</span></code> model, which is a simple conversion from <code class="docutils literal notranslate"><span class="pre">betan_ped</span></code> to <code class="docutils literal notranslate"><span class="pre">te_ped</span></code>. Instead, users may use the euivalent <code class="docutils literal notranslate"><span class="pre">expr</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;model&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="o">...</span>
+    <span class="s2">&quot;te_ped&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;expr&quot;</span><span class="p">,</span> <span class="s2">&quot;1.2424 * ip * bt / ( ne_ped * a )&quot;</span><span class="p">],</span>
+    <span class="o">...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>This example assumes that the ion pedestal temperature <code class="docutils literal notranslate"><span class="pre">ti_ped</span></code> is same to <code class="docutils literal notranslate"><span class="pre">te_ped</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;model&quot;</span><span class="p">:</span> <span class="p">{</span>
+   <span class="o">...</span>
+   <span class="s2">&quot;ti_ped&quot;</span> <span class="p">:</span> <span class="p">[</span><span class="s2">&quot;expr&quot;</span><span class="p">,</span> <span class="s2">&quot;te_ped&quot;</span><span class="p">],</span>
+   <span class="o">...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The <em>model</em> is also outcome of the TokDeisgner workflows, which can be used to generate the next scan. This iterative and recursive process is one of the key concepts of TokDesigner.</p>
+</div>
+<p><strong>Io section</strong></p>
+<p>This defines a map between the TokDesigner variables and the IPS-FASTRAN/CESOL simulation variables.
+For example, the <code class="docutils literal notranslate"><span class="pre">R0</span></code> value of the instate file in the fastran_init component will be updated by the TokDesigner Variable <code class="docutils literal notranslate"><span class="pre">r</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;r&quot;</span> <span class="p">:</span> <span class="p">[</span><span class="s2">&quot;fastran_init&quot;</span><span class="p">,</span> <span class="s2">&quot;R0&quot;</span><span class="p">],</span>
+</pre></div>
+</div>
+<p>See more details :ref:ingrid_io_reference.</p>
+</div>
+<div class="section" id="job-submission-on-cori">
+<h2>Job submission on CORI<a class="headerlink" href="#job-submission-on-cori" title="Permalink to this headline">¶</a></h2>
+<p>This example <code class="docutils literal notranslate"><span class="pre">submitjob.ex2</span></code> uses a DAKOTA scan with the scan file <code class="docutils literal notranslate"><span class="pre">dakota.in</span></code> generated by <code class="docutils literal notranslate"><span class="pre">grid.py</span></code>. Single CORI node (32 cores) is allocated, which will be shared by 32 single core IPS-FASTRAN runs simultaneously.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash -l</span>
+<span class="c1">#SBATCH -p debug</span>
+<span class="c1">#SBATCH -N 1</span>
+<span class="c1">#SBATCH -t 00:10:00</span>
+<span class="c1">#SBATCH -J ips_fastran</span>
+<span class="c1">#SBATCH -e ips.err</span>
+<span class="c1">#SBATCH -o ips.out</span>
+<span class="c1">#SBATCH -C haswell</span>
+
+module load python
+<span class="nb">source</span> activate /global/common/software/atom/cori/cesol_conda/t0.14b
+
+<span class="nb">export</span> <span class="nv">SHOT_NUMBER</span><span class="o">=</span><span class="m">000001</span>
+<span class="nb">export</span> <span class="nv">TIME_ID</span><span class="o">=</span><span class="m">00001</span>
+
+ips_dakota_dynamic.py --dakotaconfig<span class="o">=</span>dakota.in --simulation<span class="o">=</span>fastran_scenario.config --platform<span class="o">=</span>cori_haswell_node.conf --log<span class="o">=</span>ips_sweep.log
+
+conda deactivate
+</pre></div>
+</div>
+<p>See also <a class="reference external" href="https://github.com/ORNL-Fusion/tokdesigner-doc/tree/main/docs/under_construction.rst">how to use a massive serial for a larger ensemble of simulation</a>.</p>
+</div>
+<div class="section" id="collect-output-files">
+<h2>Collect output files<a class="headerlink" href="#collect-output-files" title="Permalink to this headline">¶</a></h2>
+<p><strong>Command line</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>collect.py --rdir0<span class="o">=</span>. --rdir<span class="o">=</span>SCAN --sdir<span class="o">=</span>SUMMARY --input<span class="o">=</span>collect.json
+</pre></div>
+</div>
+<p>This will collect output files in the simulation directory <code class="docutils literal notranslate"><span class="pre">SCAN</span></code> into the summary directory <code class="docutils literal notranslate"><span class="pre">SUMMARY</span></code>.</p>
+<p>See <a class="reference external" href="https://github.com/ORNL-Fusion/tokdesigner-doc/tree/main/docs/under_construction.rst">convention of the directory structure and how to modify the run directory name</a>.</p>
+<p><strong>collect.json</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+   <span class="s2">&quot;output&quot;</span> <span class="p">:</span> <span class="p">[</span>
+       <span class="p">[</span><span class="s2">&quot;fastran_tr0_fastran&quot;</span><span class="p">,</span> <span class="s2">&quot;fastran.nc&quot;</span>   <span class="p">,</span> <span class="s2">&quot;f&quot;</span><span class="p">,</span> <span class="s2">&quot;result&quot;</span> <span class="p">],</span>
+       <span class="p">[</span><span class="s2">&quot;fastran_eq0_efit&quot;</span><span class="p">,</span>    <span class="s2">&quot;g??????.?????&quot;</span><span class="p">,</span> <span class="s2">&quot;g&quot;</span><span class="p">,</span> <span class="s2">&quot;result&quot;</span> <span class="p">],</span>
+       <span class="p">[</span><span class="s2">&quot;fastran_eq0_efit&quot;</span><span class="p">,</span>    <span class="s2">&quot;a??????.?????&quot;</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;result&quot;</span> <span class="p">],</span>
+       <span class="p">[</span><span class="s2">&quot;fastran_eq0_efit&quot;</span><span class="p">,</span>    <span class="s2">&quot;s??????.?????&quot;</span><span class="p">,</span> <span class="s2">&quot;s&quot;</span><span class="p">,</span> <span class="s2">&quot;result&quot;</span> <span class="p">],</span>
+       <span class="p">[</span><span class="s2">&quot;fastran_tr0_fastran&quot;</span><span class="p">,</span> <span class="s2">&quot;i??????.?????&quot;</span><span class="p">,</span> <span class="s2">&quot;i&quot;</span><span class="p">,</span> <span class="s2">&quot;result&quot;</span> <span class="p">]</span>
+   <span class="p">],</span>
+   <span class="s2">&quot;input&quot;</span> <span class="p">:</span> <span class="p">[</span>
+       <span class="s2">&quot;fastran_scenario.config&quot;</span>
+   <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">collect.json</span></code> defines which output files to archive. For example, the <code class="docutils literal notranslate"><span class="pre">fastran0</span></code> solver component (<code class="docutils literal notranslate"><span class="pre">[fastran0]</span></code>), which is identified as <code class="docutils literal notranslate"><span class="pre">fastran_tr0_fastran</span></code> (<code class="docutils literal notranslate"><span class="pre">CLASS</span></code> + <code class="docutils literal notranslate"><span class="pre">_</span></code> + <code class="docutils literal notranslate"><span class="pre">SUB_CLASS</span></code> + <code class="docutils literal notranslate"><span class="pre">_</span></code> + <code class="docutils literal notranslate"><span class="pre">NAME</span></code>), archives <code class="docutils literal notranslate"><span class="pre">fastran.nc</span></code> with the name: <code class="docutils literal notranslate"><span class="pre">f</span></code> + <code class="docutils literal notranslate"><span class="pre">SHOT_NUMBER</span></code> + <code class="docutils literal notranslate"><span class="pre">.</span></code> + <code class="docutils literal notranslate"><span class="pre">TIME_ID</span></code> (like f123456.00001), where the <code class="docutils literal notranslate"><span class="pre">TIME_ID</span></code> is the identifier in <code class="docutils literal notranslate"><span class="pre">dakota.in</span></code> or <code class="docutils literal notranslate"><span class="pre">inscan</span></code>.</p>
+<p>See the <code class="docutils literal notranslate"><span class="pre">fastran0</span></code> componenet definition in the <code class="docutils literal notranslate"><span class="pre">fastran_scenario.config</span></code>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>fastran0<span class="o">]</span>
+    <span class="nv">CLASS</span> <span class="o">=</span> fastran
+    <span class="nv">SUB_CLASS</span> <span class="o">=</span> tr0
+    <span class="nv">NAME</span> <span class="o">=</span> fastran
+    ...
+    <span class="nv">OUTPUT_FILES</span> <span class="o">=</span> fastran.nc xfastran.log <span class="si">${</span><span class="nv">CURRENT_INSTATE</span><span class="si">}</span>
+    ....
+</pre></div>
+</div>
+</div>
+<div class="section" id="build-a-database">
+<h2>Build a database<a class="headerlink" href="#build-a-database" title="Permalink to this headline">¶</a></h2>
+<p><strong>Command line</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>makedb.py --input<span class="o">=</span>makedb.json --output<span class="o">=</span>db.dat --rdir<span class="o">=</span>SUMMARY
+</pre></div>
+</div>
+<p>This will generate a database file <code class="docutils literal notranslate"><span class="pre">db.dat</span></code> using the IPS-FASTRAN/CESOL output files archived in the <code class="docutils literal notranslate"><span class="pre">SUMMARY</span></code> directory (note <code class="docutils literal notranslate"><span class="pre">collect.py</span> <span class="pre">..</span> <span class="pre">--sdir=SUMMARY</span> <span class="pre">..</span></code>)</p>
+<p><strong>makedb.json</strong></p>
+<p>The <code class="docutils literal notranslate"><span class="pre">makedb.json</span></code> defines the database variables. For the illustration purpose, only a few variables are included - r, a, aratio, bt, ip, pinj, q95, betan, fbs, li, tau98, tauth, h98, pfus.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;variable&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="s2">&quot;r&quot;</span>          <span class="p">:</span> <span class="p">[</span><span class="s2">&quot;instate&quot;</span> <span class="p">,</span> <span class="s2">&quot;r0&quot;</span>       <span class="p">,</span> <span class="s2">&quot;input&quot;</span> <span class="p">],</span>
+      <span class="s2">&quot;a&quot;</span>          <span class="p">:</span> <span class="p">[</span><span class="s2">&quot;instate&quot;</span> <span class="p">,</span> <span class="s2">&quot;a0&quot;</span>       <span class="p">,</span> <span class="s2">&quot;input&quot;</span> <span class="p">],</span>
+      <span class="s2">&quot;bt&quot;</span>         <span class="p">:</span> <span class="p">[</span><span class="s2">&quot;instate&quot;</span> <span class="p">,</span> <span class="s2">&quot;b0&quot;</span>       <span class="p">,</span> <span class="s2">&quot;input&quot;</span> <span class="p">],</span>
+      <span class="s2">&quot;ip&quot;</span>         <span class="p">:</span> <span class="p">[</span><span class="s2">&quot;instate&quot;</span> <span class="p">,</span> <span class="s2">&quot;ip&quot;</span>       <span class="p">,</span> <span class="s2">&quot;input&quot;</span> <span class="p">],</span>
+      <span class="s2">&quot;q95&quot;</span>        <span class="p">:</span> <span class="p">[</span><span class="s2">&quot;aeqdsk&quot;</span>  <span class="p">,</span> <span class="s2">&quot;q95&quot;</span>      <span class="p">,</span> <span class="s2">&quot;output&quot;</span><span class="p">],</span>
+      <span class="s2">&quot;li&quot;</span>         <span class="p">:</span> <span class="p">[</span><span class="s2">&quot;aeqdsk&quot;</span>  <span class="p">,</span> <span class="s2">&quot;li&quot;</span>       <span class="p">,</span> <span class="s2">&quot;output&quot;</span><span class="p">],</span>
+      <span class="s2">&quot;betap&quot;</span>      <span class="p">:</span> <span class="p">[</span><span class="s2">&quot;aeqdsk&quot;</span>  <span class="p">,</span> <span class="s2">&quot;betap&quot;</span>    <span class="p">,</span> <span class="s2">&quot;output&quot;</span><span class="p">],</span>
+      <span class="s2">&quot;betat&quot;</span>      <span class="p">:</span> <span class="p">[</span><span class="s2">&quot;aeqdsk&quot;</span>  <span class="p">,</span> <span class="s2">&quot;betat&quot;</span>    <span class="p">,</span> <span class="s2">&quot;output&quot;</span><span class="p">],</span>
+      <span class="s2">&quot;ne_ped&quot;</span>     <span class="p">:</span> <span class="p">[</span><span class="s2">&quot;instate&quot;</span> <span class="p">,</span> <span class="s2">&quot;ne_ped&quot;</span>   <span class="p">,</span> <span class="s2">&quot;input&quot;</span> <span class="p">],</span>
+      <span class="s2">&quot;nebar&quot;</span>      <span class="p">:</span> <span class="p">[</span><span class="s2">&quot;fastran&quot;</span> <span class="p">,</span> <span class="s2">&quot;nebar&quot;</span>    <span class="p">,</span> <span class="s2">&quot;output&quot;</span><span class="p">],</span>
+      <span class="s2">&quot;betan&quot;</span>      <span class="p">:</span> <span class="p">[</span><span class="s2">&quot;fastran&quot;</span> <span class="p">,</span> <span class="s2">&quot;betan&quot;</span>    <span class="p">,</span> <span class="s2">&quot;output&quot;</span><span class="p">],</span>
+      <span class="s2">&quot;pfuse&quot;</span>      <span class="p">:</span> <span class="p">[</span><span class="s2">&quot;fastran&quot;</span> <span class="p">,</span> <span class="s2">&quot;pfuse&quot;</span>    <span class="p">,</span> <span class="s2">&quot;output&quot;</span><span class="p">],</span>
+      <span class="s2">&quot;pfusi&quot;</span>      <span class="p">:</span> <span class="p">[</span><span class="s2">&quot;fastran&quot;</span> <span class="p">,</span> <span class="s2">&quot;pfusi&quot;</span>    <span class="p">,</span> <span class="s2">&quot;output&quot;</span><span class="p">],</span>
+      <span class="s2">&quot;ibs&quot;</span>        <span class="p">:</span> <span class="p">[</span><span class="s2">&quot;fastran&quot;</span> <span class="p">,</span> <span class="s2">&quot;ibs&quot;</span>      <span class="p">,</span> <span class="s2">&quot;output&quot;</span><span class="p">]</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;model&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="s2">&quot;aratio&quot;</span>     <span class="p">:</span> <span class="p">[</span><span class="s2">&quot;expr&quot;</span><span class="p">,</span> <span class="s2">&quot;r / a&quot;</span> <span class="p">],</span>
+      <span class="s2">&quot;pfus&quot;</span>       <span class="p">:</span> <span class="p">[</span><span class="s2">&quot;expr&quot;</span><span class="p">,</span> <span class="s2">&quot;5.0 * ( pfuse + pfusi )&quot;</span><span class="p">],</span>
+      <span class="s2">&quot;fbs&quot;</span>        <span class="p">:</span> <span class="p">[</span><span class="s2">&quot;expr&quot;</span><span class="p">,</span> <span class="s2">&quot;ibs / ip&quot;</span><span class="p">]</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>The major radius <code class="docutils literal notranslate"><span class="pre">r</span></code> is read from the <code class="docutils literal notranslate"><span class="pre">instate</span></code> file (<code class="docutils literal notranslate"><span class="pre">i&lt;shot_number&gt;.&lt;time_id&gt;</span></code>)</li>
+<li>The q95 value <code class="docutils literal notranslate"><span class="pre">q95</span></code> is read from the EFIT “aeqdsk`` file (<code class="docutils literal notranslate"><span class="pre">a&lt;shot_number&gt;.&lt;time_id&gt;</span></code>)</li>
+<li>The alpha fusion power to electron <code class="docutils literal notranslate"><span class="pre">pfuse</span></code> is read from the <code class="docutils literal notranslate"><span class="pre">fastran</span></code> output netcdf file (<code class="docutils literal notranslate"><span class="pre">f&lt;shot_number&gt;.&lt;time_id&gt;</span></code>)</li>
+</ul>
+<p>Note that the <code class="docutils literal notranslate"><span class="pre">model</span></code> method can be used as in the <code class="docutils literal notranslate"><span class="pre">grid.py</span></code>.</p>
+<ul class="simple">
+<li>The aspect ratio <code class="docutils literal notranslate"><span class="pre">araio</span> <span class="pre">=</span> <span class="pre">r</span> <span class="pre">/</span> <span class="pre">a</span></code></li>
+<li>The bootstrap current <code class="docutils literal notranslate"><span class="pre">fbs</span> <span class="pre">=</span> <span class="pre">ibs</span> <span class="pre">/</span> <span class="pre">ip</span></code></li>
+</ul>
+<p>See the <a class="reference external" href="https://github.com/ORNL-Fusion/tokdesigner-doc/tree/main/docs/under_construction.rst">table</a> for the typical TokDesigner variables.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="scan_random.html" class="btn btn-neutral float-right" title="Scan with random sampling" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="equilibrium.html" class="btn btn-neutral float-left" title="Equilibrium at the reference point" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2023, ORNLFusion
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
