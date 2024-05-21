@@ -6,6 +6,8 @@
 Welcome to TokDesigner's Documentation!
 =======================================
 
+Please contribute
+
 .. toctree::
    :maxdepth: 1
    :caption: Contents:
